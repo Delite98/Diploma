@@ -1,53 +1,36 @@
 package pages;
 
+import baseEntities.BasePage;
 import com.codeborne.selenide.SelenideElement;
-import configurations.ReadProperties;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class LoginPage {
+public class LoginPage extends BasePage {
     //locators
-    private SelenideElement pageIdentifier = $x("//h1[text()='Sign in to GitHub']");
-    private SelenideElement username = $("#login_field");
-    private SelenideElement psw = $("#password");
-    private SelenideElement signInButton = $x("//input[@type='submit']");
-    private SelenideElement errorText = $x("//div[@class='px-2']");
+    private SelenideElement pageIdentifier = $(".logo-loginpage");
+    private SelenideElement emailInputLocator = $(".login-input#name");
+    private SelenideElement pswInputLocator = $(".login-input#password");
+    private SelenideElement loginButtonLocator = $(".loginpage-button-sso-disable");
+    private SelenideElement errorTextLocator = $(".error-text");
 
     //corpuscular methods
-    public SelenideElement getPageIdentifier() {
+    protected SelenideElement getPageIdentifier() {
         return pageIdentifier;
     }
 
-    public SelenideElement getUsername() {
-        return username;
+    public SelenideElement getEmailInputLocator() {
+        return emailInputLocator;
     }
 
-    public SelenideElement getPsw() {
-        return psw;
+    public SelenideElement getPswInputLocator() {
+        return pswInputLocator;
     }
 
-    public SelenideElement getSignInButton() {
-        return signInButton;
+    public SelenideElement getLoginButtonLocator() {
+        return loginButtonLocator;
     }
 
-    public SelenideElement getErrorText() {
-        return errorText;
-    }
-
-    //complex methods
-    public MainPage successLogin(String username, String psw) {
-        login(username, psw);
-        return new MainPage();
-    }
-
-    public LoginPage inCorrectLogin(String inCorrectEmail, String incorrectPsw) {
-        login(inCorrectEmail, incorrectPsw);
-        return this;
-    }
-
-    public void login(String username, String psw) {
-        getUsername().setValue(username);
-        getPsw().setValue(psw);
-        signInButton.click();
+    public SelenideElement getErrorTextLocator() {
+        return errorTextLocator;
     }
 }
