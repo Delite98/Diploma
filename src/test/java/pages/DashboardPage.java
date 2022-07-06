@@ -11,6 +11,7 @@ public class DashboardPage extends BasePage {
     //locators
     private SelenideElement pageIdentifier = $x("//div[contains(@class, 'content-header-title') and contains(text(), 'All Projects')]");
     private SelenideElement addProjectButton = $("#sidebar-projects-add");
+    private String openProjectByNameLocator = "//a[contains(@style,'padding-left: 25px') and contains(text(),'Replace')]";
 
     //corpuscular methods
     public SelenideElement getPageIdentifier() {
@@ -23,5 +24,9 @@ public class DashboardPage extends BasePage {
 
     public void openPageByUrl() {
         super.openPageByUrl(pagePath);
+    }
+
+    public SelenideElement getOpenProjectByNameLocator(String projectName) {
+        return $x(openProjectByNameLocator.replace("Replace", projectName));
     }
 }

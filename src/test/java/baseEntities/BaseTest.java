@@ -6,14 +6,16 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import configurations.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.testng.annotations.BeforeSuite;
-import steps.AddProjectStep;
-import steps.DashboardStep;
-import steps.LoginStep;
+import steps.*;
 
 public class BaseTest {
     protected LoginStep loginStep;
     protected DashboardStep dashboardStep;
     protected AddProjectStep addProjectStep;
+    protected ProjectOverviewStep projectOverviewStep;
+    protected TestSuitesStep testSuitesStep;
+    protected AddTestSuiteStep addTestSuiteStep;
+    protected TestSuiteOverviewStep testSuiteOverviewStep;
 
     @BeforeSuite
     public void setupBrowser() {
@@ -26,5 +28,9 @@ public class BaseTest {
         loginStep = new LoginStep();
         dashboardStep = new DashboardStep();
         addProjectStep = new AddProjectStep();
+        projectOverviewStep = new ProjectOverviewStep();
+        testSuitesStep = new TestSuitesStep();
+        addTestSuiteStep = new AddTestSuiteStep();
+        testSuiteOverviewStep = new TestSuiteOverviewStep();
     }
 }
