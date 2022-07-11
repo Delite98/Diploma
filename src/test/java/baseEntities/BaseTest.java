@@ -10,12 +10,14 @@ import steps.*;
 
 public class BaseTest {
     protected LoginStep loginStep;
+    protected NavigationStep navigationStep;
     protected DashboardStep dashboardStep;
     protected AddProjectStep addProjectStep;
     protected ProjectOverviewStep projectOverviewStep;
     protected TestSuitesStep testSuitesStep;
     protected AddTestSuiteStep addTestSuiteStep;
     protected TestSuiteOverviewStep testSuiteOverviewStep;
+    protected EditTestSuiteStep editTestSuiteStep;
 
     @BeforeSuite
     public void setupBrowser() {
@@ -26,11 +28,13 @@ public class BaseTest {
         SelenideLogger.addListener("Selenide", new AllureSelenide());
 
         loginStep = new LoginStep();
+        navigationStep = new NavigationStep();
         dashboardStep = new DashboardStep();
         addProjectStep = new AddProjectStep();
         projectOverviewStep = new ProjectOverviewStep();
         testSuitesStep = new TestSuitesStep();
         addTestSuiteStep = new AddTestSuiteStep();
         testSuiteOverviewStep = new TestSuiteOverviewStep();
+        editTestSuiteStep = new EditTestSuiteStep();
     }
 }

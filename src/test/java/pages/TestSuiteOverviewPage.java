@@ -9,7 +9,9 @@ public class TestSuiteOverviewPage extends BasePage {
     //locators
     private SelenideElement pageIdentifier = $x("//a[@id='navigation-suites-sectionscases']");
     private SelenideElement editButtonLocator = $x("//a[contains(@class,'content-header-button')]/span[@class='button-text' and text()='Edit']");
-
+    private SelenideElement updateMessageLocator = $x("//div[contains(text(),'Successfully updated the test suite.')]");
+    private SelenideElement deleteMessageLocator = $x("//div[contains(text(),'Successfully deleted the test suite.')]");
+    private SelenideElement returnToDashboardButtonLocator = $x("//a[@id='navigation-dashboard-top']");
     //corpuscular methods
     @Override
     protected SelenideElement getPageIdentifier() {
@@ -18,5 +20,17 @@ public class TestSuiteOverviewPage extends BasePage {
 
     public SelenideElement getEditButtonLocator() {
         return editButtonLocator;
+    }
+
+    public SelenideElement getUpdateMessageLocator() {
+        return updateMessageLocator;
+    }
+
+    public SelenideElement getDeleteMessageLocator() {
+        return deleteMessageLocator;
+    }
+
+    public SelenideElement getReturnToDashboardButtonLocator() {
+        return returnToDashboardButtonLocator;
     }
 }

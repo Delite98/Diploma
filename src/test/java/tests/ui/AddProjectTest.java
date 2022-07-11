@@ -4,8 +4,7 @@ import baseEntities.BaseTest;
 import configurations.ReadProperties;
 import org.testng.annotations.Test;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Condition.text;
 
 public class AddProjectTest extends BaseTest {
     @Test
@@ -27,14 +26,18 @@ public class AddProjectTest extends BaseTest {
         addTestSuiteStep.createTestSuite("testSuite1", "test")
                 .getMessageLocator()
                 .isDisplayed();
+        navigationStep.navigateToDashboard();
+
     }
 
-
-    @Test
-    public void uploadTest() throws InterruptedException {
-        open("http://the-internet.herokuapp.com/upload");
-        $("#file-upload").sendKeys("C:\\Users\\Valera\\QA18\\Diploma1\\src\\test\\resources\\download.png");
-        $("#file-submit").click();
-        Thread.sleep(5000);
+    @Test(dependsOnMethods = "addTestSuiteTest")
+    public void deleteTestSuiteTest() {
+        dashboardStep.openProject("test2");
+        projectOverviewStep.selectTestSuite();
+        testSuitesStep.openTestSuite("testSuite1");
+        testSuiteOverviewStep.selectEditTestSuite();
+        editTestSuiteStep.deleteTestSuite("testSuite1")
+                .getDeleteMessageLocator()
+                .shouldHave(text("Successfully deleted the test suite."));
     }
 }
