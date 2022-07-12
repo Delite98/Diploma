@@ -12,6 +12,9 @@ public class DashboardPage extends BasePage {
     private SelenideElement pageIdentifier = $x("//div[contains(@class, 'content-header-title') and contains(text(), 'All Projects')]");
     private SelenideElement addProjectButton = $("#sidebar-projects-add");
     private String openProjectByNameLocator = "//a[text()='Replace']";
+    private SelenideElement iconHeaderMail = $(".icon-header-mail");
+    private SelenideElement textIconHeaderMail = $(".top-social-link.link-tooltip:last-child");
+
 
     //corpuscular methods
     public SelenideElement getPageIdentifier() {
@@ -28,5 +31,13 @@ public class DashboardPage extends BasePage {
 
     public SelenideElement getOpenProjectByNameLocator(String projectName) {
         return $x(openProjectByNameLocator.replace("Replace", projectName));
+    }
+
+    public SelenideElement getIconHeaderMail() {
+        return iconHeaderMail;
+    }
+
+    public SelenideElement getTextIconHeaderMail() {
+        return textIconHeaderMail;
     }
 }
