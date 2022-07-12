@@ -1,14 +1,14 @@
 package steps;
 
 import baseEntities.BaseStep;
-import pages.ProjectOverviewPage;
+import com.codeborne.selenide.SelenideElement;
 import pages.TestSuiteOverviewPage;
 
 public class EditTestSuiteStep extends BaseStep {
 
-    public ProjectOverviewPage editTestSuite(String testSuiteName, String testSuiteDescription) {
+    public TestSuiteOverviewPage editTestSuite(String testSuiteName, String testSuiteDescription) {
         fillTestSuite(testSuiteName, testSuiteDescription);
-        return new ProjectOverviewPage();
+        return testSuiteOverviewPage;
     }
 
     public TestSuiteOverviewPage deleteTestSuite(String nameTestSuite) {
@@ -19,15 +19,17 @@ public class EditTestSuiteStep extends BaseStep {
     }
 
     public void fillTestSuite(String testSuiteName, String testSuiteDescription) {
-        addTestSuitePage.getNameTestSuiteInputLocator().setValue(testSuiteName);
-        addTestSuitePage.getDescriptionTestSuiteInputLocator().setValue(testSuiteDescription);
+        editTestSuitePage.getDescriptionTestSuiteLocator().click();
+        editTestSuitePage.getNameTestSuiteInputLocator().setValue(testSuiteName);
+        editTestSuitePage.getDescriptionTestSuiteLocator().setValue(testSuiteDescription);
+        editTestSuitePage.getSaveTestSuiteButtonLocator().click();
     }
 
-    public String getTestSuiteName() {
-        return editTestSuitePage.getNameTestSuiteInputLocator().getText();
+    public SelenideElement getTestSuiteName() {
+        return editTestSuitePage.getNameTestSuiteInputLocator();
     }
 
-    public String getDescription() {
-        return editTestSuitePage.getDescriptionTestSuiteLocator().getText();
+    public SelenideElement getDescription() {
+        return editTestSuitePage.getDescriptionTestSuiteLocator();
     }
 }
