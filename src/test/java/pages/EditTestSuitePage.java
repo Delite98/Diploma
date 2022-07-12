@@ -3,6 +3,7 @@ package pages;
 import baseEntities.BasePage;
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class EditTestSuitePage extends BasePage {
@@ -17,6 +18,7 @@ public class EditTestSuitePage extends BasePage {
     private SelenideElement checkBoxButtonLocator = $x("//span[@class='dialog-confirm-busy']/following::input[@name='deleteCheckbox']");
     private SelenideElement confirmationOkButtonLocator = $x("//div[contains(@class,'delete-confirm-container')]/following::a[contains(text(),'OK')]");
     private SelenideElement confirmationCancelButtonLocator = $x("//a[contains(@class,'dialog-action-secondary')]/following-sibling::a[contains(text(),'Cancel')]");
+    private SelenideElement returnToDashboardPageButtonLocator = $("#navigation-dashboard-top");
 
     //corpuscular methods
     @Override
@@ -58,5 +60,9 @@ public class EditTestSuitePage extends BasePage {
 
     public SelenideElement getConfirmationCancelButtonLocator() {
         return confirmationCancelButtonLocator;
+    }
+
+    public SelenideElement getReturnToDashboardPageButtonLocator() {
+        return returnToDashboardPageButtonLocator;
     }
 }

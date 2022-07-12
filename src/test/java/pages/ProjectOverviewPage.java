@@ -13,6 +13,7 @@ public class ProjectOverviewPage extends BasePage {
     private SelenideElement testSuitesAndCasesButtonLocator = $x("//a[@id='navigation-suites']");
     private SelenideElement milestonesButtonLocator = $x("//a[@id='navigation-milestones']");
     private SelenideElement messageLocator = $x("//div[contains(text(),'Successfully added the new test suite.')]");
+    private SelenideElement returnToDashboardButtonLocator = $("#navigation-dashboard");
 
     //corpuscular methods
     @Override
@@ -34,5 +35,9 @@ public class ProjectOverviewPage extends BasePage {
 
     public SelenideElement getMessageLocator() {
         return messageLocator;
+    }
+
+    public SelenideElement getReturnToDashboardButtonLocator() {
+        return returnToDashboardButtonLocator;
     }
 }
