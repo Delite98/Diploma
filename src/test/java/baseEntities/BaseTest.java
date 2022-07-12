@@ -5,7 +5,9 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import configurations.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeSuite;
+import pages.DashboardPage;
 import steps.*;
 
 public class BaseTest {
@@ -18,6 +20,8 @@ public class BaseTest {
     protected AddTestSuiteStep addTestSuiteStep;
     protected TestSuiteOverviewStep testSuiteOverviewStep;
     protected EditTestSuiteStep editTestSuiteStep;
+    protected DashboardPage dashboardPage;
+    protected WebDriver driver;
 
     @BeforeSuite
     public void setupBrowser() {
@@ -36,5 +40,6 @@ public class BaseTest {
         addTestSuiteStep = new AddTestSuiteStep();
         testSuiteOverviewStep = new TestSuiteOverviewStep();
         editTestSuiteStep = new EditTestSuiteStep();
+        dashboardPage = new DashboardPage();
     }
 }
