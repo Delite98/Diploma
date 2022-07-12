@@ -10,6 +10,9 @@ public class ProjectOverviewPage extends BasePage {
     //locators
     private SelenideElement pageIdentifier = $(".chart-line");
     private String tabLocator = "//li/a[. = 'Replace']";
+    private SelenideElement testSuitesAndCasesButtonLocator = $x("//a[@id='navigation-suites']");
+    private SelenideElement milestonesButtonLocator = $x("//a[@id='navigation-milestones']");
+    private SelenideElement messageLocator = $x("//div[contains(text(),'Successfully added the new test suite.')]");
 
     //corpuscular methods
     @Override
@@ -19,5 +22,17 @@ public class ProjectOverviewPage extends BasePage {
 
     public SelenideElement getTabByName(String tabName) {
         return $x(tabLocator.replace("Replace", tabName));
+    }
+
+    public SelenideElement getTestSuitesAndCasesButtonLocator() {
+        return testSuitesAndCasesButtonLocator;
+    }
+
+    public SelenideElement getMilestonesButtonLocator() {
+        return milestonesButtonLocator;
+    }
+
+    public SelenideElement getMessageLocator() {
+        return messageLocator;
     }
 }
