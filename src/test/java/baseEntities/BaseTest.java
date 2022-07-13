@@ -22,7 +22,6 @@ public class BaseTest {
     protected TestSuiteOverviewStep testSuiteOverviewStep;
     protected EditTestSuiteStep editTestSuiteStep;
     protected DashboardPage dashboardPage;
-    protected WebDriver driver;
 
     @BeforeSuite
     public void setupBrowser() {
@@ -42,6 +41,5 @@ public class BaseTest {
         testSuiteOverviewStep = new TestSuiteOverviewStep();
         editTestSuiteStep = new EditTestSuiteStep();
         dashboardPage = new DashboardPage();
-        driver = new ChromeDriver();
     }
 }
