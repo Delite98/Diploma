@@ -11,7 +11,7 @@ public class DashboardPage extends BasePage {
     //locators
     private SelenideElement pageIdentifier = $x("//div[contains(@class, 'content-header-title') and contains(text(), 'All Projects')]");
     private SelenideElement addProjectButton = $("#sidebar-projects-add");
-    private String openProjectByNameLocator = "//a[contains(@style,'padding-left: 25px') and contains(text(),'Replace')]";
+    private String openProjectByNameLocator = "//a[text()='Replace']";
     private SelenideElement iconHeaderMail = $(".icon-header-mail");
     private SelenideElement textIconHeaderMail = $(".top-social-link.link-tooltip:last-child");
 
