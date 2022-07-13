@@ -24,7 +24,6 @@ public class LoginStep extends BaseStep {
     }
 
     public void login(String username, String psw) {
-        open(ReadProperties.getUrl());
         loginPage.getEmailInputLocator().setValue(username);
         loginPage.getPswInputLocator().setValue(psw);
         loginPage.getLoginButtonLocator().click();
