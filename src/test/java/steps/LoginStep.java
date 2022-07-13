@@ -8,6 +8,11 @@ import pages.DashboardPage;
 import static com.codeborne.selenide.Selenide.open;
 
 public class LoginStep extends BaseStep {
+
+    public LoginStep(){
+        super();
+    }
+
     public DashboardPage successLogin(String username, String psw) {
         login(username, psw);
         return dashboardPage;
