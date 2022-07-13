@@ -10,12 +10,12 @@ import static com.codeborne.selenide.Selenide.open;
 public class LoginStep extends BaseStep {
     public DashboardPage successLogin(String username, String psw) {
         login(username, psw);
-        return new DashboardPage();
+        return dashboardPage;
     }
 
     public LoginPage inCorrectLogin(String inCorrectEmail, String incorrectPsw) {
         login(inCorrectEmail, incorrectPsw);
-        return new LoginPage();
+        return loginPage;
     }
 
     public void login(String username, String psw) {
