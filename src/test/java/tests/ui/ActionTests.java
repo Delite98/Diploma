@@ -20,13 +20,7 @@ public class ActionTests extends BaseTest {
 
     @Test
     public void dialogWindowTest(){
-        LoginPage loginPage = new LoginPage();
-
-        loginPage.getEmailInputLocator().sendKeys(ReadProperties.username());
-        loginPage.getPswInputLocator().sendKeys(ReadProperties.password());
-        loginPage.getLoginButtonLocator().click();
-
-
+        loginStep.successLogin(ReadProperties.username(), ReadProperties.password());
         actions()
                 .moveToElement(dashboardPage.getIconHeaderMail())
                 .pause(5000)
