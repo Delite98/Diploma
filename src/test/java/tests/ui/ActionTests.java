@@ -3,6 +3,8 @@ package tests.ui;
 import baseEntities.BaseTest;
 import com.codeborne.selenide.SelenideElement;
 import configurations.ReadProperties;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -13,8 +15,7 @@ import pages.LoginPage;
 import java.time.Duration;
 import java.util.List;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.actions;
+import static com.codeborne.selenide.Selenide.*;
 
 public class ActionTests extends BaseTest {
 
@@ -28,6 +29,4 @@ public class ActionTests extends BaseTest {
                 .perform();
 Assert.assertTrue(dashboardPage.getTextIconHeaderMail().isDisplayed());
     }
-
-
 }
