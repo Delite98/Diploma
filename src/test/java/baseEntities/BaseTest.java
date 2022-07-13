@@ -6,6 +6,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import configurations.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeSuite;
 import pages.DashboardPage;
 import steps.*;
@@ -41,5 +42,6 @@ public class BaseTest {
         testSuiteOverviewStep = new TestSuiteOverviewStep();
         editTestSuiteStep = new EditTestSuiteStep();
         dashboardPage = new DashboardPage();
+        driver = new ChromeDriver();
     }
 }
