@@ -12,7 +12,7 @@ public class DashboardPage extends BasePage {
     private SelenideElement pageIdentifier = $x("//div[contains(@class, 'content-header-title') and contains(text(), 'All Projects')]");
     private SelenideElement addProjectButton = $("#sidebar-projects-add");
     private String openProjectByNameLocator = "//a[text()='Replace']";
-    private SelenideElement tooltipLocator = $x("//div[@class='icon-header-mail']");
+    private SelenideElement tooltipLocator = $x("//div[@class='icon-header-mail']/parent::a");
 
     //corpuscular methods
     public SelenideElement getPageIdentifier() {
