@@ -29,6 +29,7 @@ public class BaseTest {
         Configuration.browserPosition = "0x0";
         SelenideLogger.addListener("Selenide", new AllureSelenide());
 
+        loginStep = new LoginStep();
         navigationStep = new NavigationStep();
         dashboardStep = new DashboardStep();
         addProjectStep = new AddProjectStep();
