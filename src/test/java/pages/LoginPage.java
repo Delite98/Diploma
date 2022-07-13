@@ -8,8 +8,8 @@ import static com.codeborne.selenide.Selenide.*;
 public class LoginPage extends BasePage {
     //locators
     private SelenideElement pageIdentifier = $(".logo-loginpage");
-    private SelenideElement emailInputLocator = $(".login-input#name");
-    private SelenideElement pswInputLocator = $(".login-input#password");
+    private SelenideElement emailInputLocator = $("#name");
+    private SelenideElement pswInputLocator = $("#password");
     private SelenideElement loginButtonLocator = $(".loginpage-button-sso-disable");
     private SelenideElement errorTextLocator = $(".error-text");
 
