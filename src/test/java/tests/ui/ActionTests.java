@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.LoginPage;
 
 import java.time.Duration;
 import java.util.List;
@@ -19,8 +20,12 @@ public class ActionTests extends BaseTest {
 
     @Test
     public void dialogWindowTest(){
+        LoginPage loginPage = new LoginPage();
 
-        loginStep.successLogin(ReadProperties.username(), ReadProperties.password());
+        loginPage.getEmailInputLocator().sendKeys(ReadProperties.username());
+        loginPage.getPswInputLocator().sendKeys(ReadProperties.password());
+        loginPage.getLoginButtonLocator().click();
+
 
         actions()
                 .moveToElement(dashboardPage.getIconHeaderMail())
