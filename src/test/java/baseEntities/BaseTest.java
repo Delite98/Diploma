@@ -9,8 +9,6 @@ import org.testng.annotations.BeforeSuite;
 import pages.DashboardPage;
 import steps.*;
 
-import static com.codeborne.selenide.Selenide.open;
-
 public class BaseTest {
     protected LoginStep loginStep;
     protected NavigationStep navigationStep;
@@ -25,7 +23,6 @@ public class BaseTest {
 
     @BeforeSuite
     public void setupBrowser() {
-        open(ReadProperties.getUrl());
         Configuration.baseUrl = ReadProperties.getUrl();
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
