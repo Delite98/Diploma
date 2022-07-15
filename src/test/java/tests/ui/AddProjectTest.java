@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Condition.value;
 public class AddProjectTest extends BaseTest {
     @Test(priority = 1)
     public void addProjectTest() {
-        //loginStep.successLogin(ReadProperties.username(), ReadProperties.password());
+        loginStep.successLogin(ReadProperties.username(), ReadProperties.password());
         dashboardStep.successAddProject();
         addProjectStep.createProject("testUI", "test", false,
                         "suite_mode_multi", false)
