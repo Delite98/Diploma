@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 
 public class ApiTests extends BaseApiTest {
+    int idProject = 148;
 
     @Test
     public void postProjectApiTest(){
@@ -24,7 +25,7 @@ public class ApiTests extends BaseApiTest {
         given()
                 .body(String.format("{\n" +
                         "  \"name\": \"%s\"\n" +
-                        "}", newProject.getId()))
+                        "}", newProject.getName()))
                 .when()
                 .post(ApiEndpoints.ADD_PROJECT)
                 .then()
@@ -43,7 +44,7 @@ public class ApiTests extends BaseApiTest {
                         "  \"name\": \"%s\"\n" +
                         "}", newSuits.getName()))
                 .when()
-                .pathParam("project_id", 148)
+                .pathParam("project_id", idProject)
                 .post(ApiEndpoints.ADD_SUITES)
                 .then()
                 .log().body()
@@ -65,7 +66,7 @@ public class ApiTests extends BaseApiTest {
     public void getReportsApiTest() {
         given()
                 .when()
-                .pathParam("project_id", 148)
+                .pathParam("project_id", idProject)
                 .get(ApiEndpoints.GET_REPORTS)
                 .then()
                 .log().status()
@@ -76,7 +77,7 @@ public class ApiTests extends BaseApiTest {
     public void getSuitesApiTest() {
         given()
                 .when()
-                .pathParam("project_id", 148)
+                .pathParam("project_id", idProject)
                 .get(ApiEndpoints.GET_SUITES)
                 .then()
                 .log().status()
@@ -88,7 +89,7 @@ public class ApiTests extends BaseApiTest {
         public void getPlansApiTest() {
         given()
                 .when()
-                .pathParam("project_id", 148)
+                .pathParam("project_id", idProject)
                 .get(ApiEndpoints.GET_PLANS)
                 .then()
                 .log().status()
@@ -99,7 +100,7 @@ public class ApiTests extends BaseApiTest {
     @Test (expectedExceptions = {AssertionError.class})
     public void incorrectValidateApiTest() {
         Response response = given()
-                .pathParam("project_id", 148)
+                .pathParam("project_id", idProject)
                 .get(ApiEndpoints.GET_PROJECT);
 
         Project actualProject = new Gson().fromJson(response.getBody().asString(),
