@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
@@ -28,5 +29,10 @@ public class ActionTests extends BaseTest {
                 .build()
                 .perform();
 Assert.assertTrue(dashboardPage.getTextIconHeaderMail().isDisplayed());
+    }
+
+    @AfterTest
+    public void logout(){
+        loginStep.logout();
     }
 }
