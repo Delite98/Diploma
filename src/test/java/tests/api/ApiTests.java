@@ -14,6 +14,41 @@ import static io.restassured.RestAssured.given;
 
 public class ApiTests extends BaseApiTest {
 
+    @Test
+    public void postProjectApiTest(){
+        Project newProject = Project.builder()
+                .name("API test from API test")
+                .announcement("Hi, I'm test api for diploma")
+                .build();
+
+        given()
+                .body(String.format("{\n" +
+                        "  \"name\": \"%s\"\n" +
+                        "}", newProject.getId()))
+                .when()
+                .post(ApiEndpoints.ADD_PROJECT)
+                .then()
+                .log().body()
+                .statusCode(HttpStatus.SC_OK);
+    }
+    @Test
+    public void postSuiteApiTest(){
+        Suits newSuits = Suits.builder()
+                .name("SuitsMyGod0")
+                .description("Hello, let's try")
+                .build();
+
+        given()
+                .body(String.format("{\n" +
+                        "  \"name\": \"%s\"\n" +
+                        "}", newSuits.getName()))
+                .when()
+                .pathParam("project_id", 148)
+                .post(ApiEndpoints.ADD_SUITES)
+                .then()
+                .log().body()
+                .statusCode(HttpStatus.SC_OK);
+    }
 
     @Test
     public void getProjectsApiTest() {
@@ -57,42 +92,6 @@ public class ApiTests extends BaseApiTest {
                 .get(ApiEndpoints.GET_PLANS)
                 .then()
                 .log().status()
-                .log().body()
-                .statusCode(HttpStatus.SC_OK);
-    }
-
-    @Test
-    public void postProjectApiTest(){
-        Project newProject = Project.builder()
-                .name("TestApi3+1")
-                .announcement("Hi, I'm test api for diploma")
-                .build();
-
-        given()
-                .body(String.format("{\n" +
-                        "  \"name\": \"%s\"\n" +
-                        "}", newProject.getName()))
-                .when()
-                .post(ApiEndpoints.ADD_PROJECT)
-                .then()
-                .log().body()
-                .statusCode(HttpStatus.SC_OK);
-    }
-    @Test
-    public void postSuiteApiTest(){
-        Suits newSuits = Suits.builder()
-                .name("SuitsMyGod0")
-                .description("Hello, let's try")
-                .build();
-
-        given()
-                .body(String.format("{\n" +
-                        "  \"name\": \"%s\"\n" +
-                        "}", newSuits.getName()))
-                .when()
-                .pathParam("project_id", 148)
-                .post(ApiEndpoints.ADD_SUITES)
-                .then()
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }

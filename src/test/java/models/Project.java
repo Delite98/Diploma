@@ -14,4 +14,5 @@ public class Project {
         private int typeOfProject;
         @SerializedName(value = "is_completed")
         private boolean isCompleted;
+        private int id;
 }
