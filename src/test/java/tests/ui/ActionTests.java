@@ -1,6 +1,7 @@
 package tests.ui;
 
 import baseEntities.BaseTest;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import configurations.ReadProperties;
 import org.openqa.selenium.Alert;
@@ -35,5 +36,7 @@ Assert.assertTrue(dashboardPage.getTextIconHeaderMail().isDisplayed());
     public void logout() throws InterruptedException {
         loginStep.logout();
         Thread.sleep(2);
+        Selenide.clearBrowserLocalStorage();
+        Selenide.clearBrowserLocalStorage();
     }
 }
