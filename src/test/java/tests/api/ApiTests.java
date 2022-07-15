@@ -65,7 +65,7 @@ public class ApiTests extends BaseApiTest {
     public void getReportsApiTest() {
         given()
                 .when()
-                .pathParam("project_id", 146)
+                .pathParam("project_id", 148)
                 .get(ApiEndpoints.GET_REPORTS)
                 .then()
                 .log().status()
@@ -76,7 +76,7 @@ public class ApiTests extends BaseApiTest {
     public void getSuitesApiTest() {
         given()
                 .when()
-                .pathParam("project_id", 146)
+                .pathParam("project_id", 148)
                 .get(ApiEndpoints.GET_SUITES)
                 .then()
                 .log().status()
@@ -88,7 +88,7 @@ public class ApiTests extends BaseApiTest {
         public void getPlansApiTest() {
         given()
                 .when()
-                .pathParam("project_id", 146)
+                .pathParam("project_id", 148)
                 .get(ApiEndpoints.GET_PLANS)
                 .then()
                 .log().status()
@@ -99,7 +99,7 @@ public class ApiTests extends BaseApiTest {
     @Test (expectedExceptions = {AssertionError.class})
     public void incorrectValidateApiTest() {
         Response response = given()
-                .pathParam("project_id", 146)
+                .pathParam("project_id", 148)
                 .get(ApiEndpoints.GET_PROJECT);
 
         Project actualProject = new Gson().fromJson(response.getBody().asString(),
