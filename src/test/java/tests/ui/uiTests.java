@@ -47,7 +47,6 @@ public class uiTests extends BaseTest {
 
     @Test (priority = 4)
     public void emergeTextTest(){
-        loginStep.successLogin(ReadProperties.username(), ReadProperties.password());
         actions()
                 .moveToElement(dashboardPage.getIconHeaderMail())
                 .pause(5000)
