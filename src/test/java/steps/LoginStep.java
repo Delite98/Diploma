@@ -33,13 +33,8 @@ public class LoginStep extends BaseStep {
     }
 
     public LoginPage logout() {
-        actions()
-                .moveToElement($(".navigation-username"))
-                .click()
-                .moveToElement($("#navigation-user-logout"))
-                .click()
-                .build()
-                .perform();
+        loginPage.getUserNameLocator().click();
+        loginPage.getLogoutButtonLocator().click();
         return loginPage;
     }
 }

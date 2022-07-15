@@ -32,7 +32,7 @@ Assert.assertTrue(dashboardPage.getTextIconHeaderMail().isDisplayed());
     }
 
     @AfterTest
-    public void logout(){
+    public void logout() {
         loginStep.logout();
     }
 }

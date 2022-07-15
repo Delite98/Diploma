@@ -15,6 +15,8 @@ public class LoginPage extends BasePage {
     private SelenideElement errorTextLocator = $(".error-text");
     private SelenideElement errorLocator = $x("//div[text()='Field Email/User is too long (250 characters at most).']");
     private SelenideElement loginPageMessage = $(".loginpage-message-image");
+    private SelenideElement userNameLocator = $(".navigation-username");
+    private SelenideElement logoutButtonLocator = $("#navigation-user-logout");
 
     //corpuscular methods
     protected SelenideElement getPageIdentifier() {
@@ -43,5 +45,13 @@ public class LoginPage extends BasePage {
 
     public SelenideElement getLoginPageMessage() {
         return loginPageMessage;
+    }
+
+    public SelenideElement getUserNameLocator() {
+        return userNameLocator;
+    }
+
+    public SelenideElement getLogoutButtonLocator() {
+        return logoutButtonLocator;
     }
 }
