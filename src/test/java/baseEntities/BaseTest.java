@@ -55,9 +55,6 @@ public class BaseTest {
     public void closeBrowser(){
         loginStep.logout();
         loginPage.getEmailInputLocator().isDisplayed();
-
-        Selenide.clearBrowserCookies();
-        Selenide.clearBrowserLocalStorage();
         Selenide.closeWebDriver();
     }
 }
