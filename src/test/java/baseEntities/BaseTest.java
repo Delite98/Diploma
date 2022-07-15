@@ -6,6 +6,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import configurations.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeClass;
@@ -53,8 +54,11 @@ public class BaseTest {
         editTestSuitePage = new EditTestSuitePage();
     }
 
-    @AfterTest
+    @AfterClass
     public void closeBrowser(){
+        Selenide.closeWindow();
+        Selenide.clearBrowserCookies();
+        Selenide.clearBrowserLocalStorage();
         Selenide.closeWebDriver();
     }
 }

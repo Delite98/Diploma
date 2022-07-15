@@ -29,16 +29,12 @@ public class ActionTests extends BaseTest {
                 .pause(5000)
                 .build()
                 .perform();
-Assert.assertTrue(dashboardPage.getTextIconHeaderMail().isDisplayed());
+        Assert.assertTrue(dashboardPage.getTextIconHeaderMail().isDisplayed());
     }
 
     @AfterTest
-    public void logout() throws InterruptedException {
+    public void logout() {
         loginStep.logout();
-        Thread.sleep(2);
-        Selenide.clearBrowserLocalStorage();
-        Selenide.clearBrowserLocalStorage();
         loginPage.getEmailInputLocator().isDisplayed();
-        Selenide.closeWebDriver();
     }
 }
