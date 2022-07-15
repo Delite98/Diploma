@@ -1,6 +1,7 @@
 package tests.ui;
 
 import baseEntities.BaseTest;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import configurations.ReadProperties;
 import org.openqa.selenium.Alert;
@@ -9,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 
@@ -27,6 +29,6 @@ public class ActionTests extends BaseTest {
                 .pause(5000)
                 .build()
                 .perform();
-Assert.assertTrue(dashboardPage.getTextIconHeaderMail().isDisplayed());
+        Assert.assertTrue(dashboardPage.getTextIconHeaderMail().isDisplayed());
     }
 }

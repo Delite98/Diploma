@@ -2,10 +2,10 @@ package steps;
 
 import baseEntities.BaseStep;
 import configurations.ReadProperties;
-import pages.LoginPage;
 import pages.DashboardPage;
+import pages.LoginPage;
 
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class LoginStep extends BaseStep {
 
@@ -24,5 +24,17 @@ public class LoginStep extends BaseStep {
         loginPage.getEmailInputLocator().setValue(username);
         loginPage.getPswInputLocator().setValue(psw);
         loginPage.getLoginButtonLocator().click();
+    }
+
+    public void emptyLogin(String psw) {
+        open(ReadProperties.getUrl());
+        loginPage.getPswInputLocator().setValue(psw);
+        loginPage.getLoginButtonLocator().click();
+    }
+
+    public LoginPage logout() {
+        loginPage.getUserNameLocator().click();
+        loginPage.getLogoutButtonLocator().click();
+        return loginPage;
     }
 }

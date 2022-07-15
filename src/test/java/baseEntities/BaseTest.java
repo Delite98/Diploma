@@ -2,12 +2,14 @@ package baseEntities;
 
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import configurations.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 import pages.DashboardPage;
+import pages.EditTestSuitePage;
+import pages.LoginPage;
 import steps.*;
 
 public class BaseTest {
@@ -21,6 +23,8 @@ public class BaseTest {
     protected TestSuiteOverviewStep testSuiteOverviewStep;
     protected EditTestSuiteStep editTestSuiteStep;
     protected DashboardPage dashboardPage;
+    protected LoginPage loginPage;
+    protected EditTestSuitePage editTestSuitePage;
 
     @BeforeSuite
     public void setupBrowser() {
@@ -43,5 +47,17 @@ public class BaseTest {
         testSuiteOverviewStep = new TestSuiteOverviewStep();
         editTestSuiteStep = new EditTestSuiteStep();
         dashboardPage = new DashboardPage();
+        loginPage = new LoginPage();
+        editTestSuitePage = new EditTestSuitePage();
+    }
+
+    @AfterClass
+    public void closeBrowser(){
+        loginStep.logout();
+        loginPage.getEmailInputLocator().isDisplayed();
+
+        Selenide.clearBrowserCookies();
+        Selenide.clearBrowserLocalStorage();
+        Selenide.closeWebDriver();
     }
 }
