@@ -32,6 +32,7 @@ public class ApiTests extends BaseApiTest {
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
+
     @Test
     public void postSuiteApiTest(){
         Suits newSuits = Suits.builder()
