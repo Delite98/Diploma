@@ -51,8 +51,11 @@ public class BaseTest {
         editTestSuitePage = new EditTestSuitePage();
     }
 
-    @AfterSuite
+    @AfterClass
     public void closeBrowser(){
+        loginStep.logout();
+        loginPage.getEmailInputLocator().isDisplayed();
+
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
         Selenide.closeWebDriver();

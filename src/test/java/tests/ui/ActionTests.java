@@ -31,10 +31,4 @@ public class ActionTests extends BaseTest {
                 .perform();
         Assert.assertTrue(dashboardPage.getTextIconHeaderMail().isDisplayed());
     }
-
-    @AfterTest
-    public void logout() {
-        loginStep.logout();
-        loginPage.getEmailInputLocator().isDisplayed();
-    }
 }
