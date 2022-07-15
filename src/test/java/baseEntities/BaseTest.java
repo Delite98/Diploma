@@ -6,10 +6,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import configurations.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.*;
 import pages.DashboardPage;
 import pages.EditTestSuitePage;
 import pages.LoginPage;
@@ -54,7 +51,7 @@ public class BaseTest {
         editTestSuitePage = new EditTestSuitePage();
     }
 
-    @AfterClass
+    @AfterSuite
     public void closeBrowser(){
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
