@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Condition.text;
 
 public class LoginTest extends BaseTest {
 
-    @Test(priority = 1)
+    @Test(priority = 3)
     public void successLoginTest() {
         loginStep.successLogin(ReadProperties.username(), ReadProperties.password())
                 .getPageIdentifier()
@@ -23,7 +23,7 @@ public class LoginTest extends BaseTest {
                 .shouldHave(text("Email/Login or Password is incorrect. Please try again."));
     }
 
-    @Test(priority = 3)
+    @Test(priority = 1)
     public void incorrectPswTest() {
         loginStep.inCorrectLogin(ReadProperties.username(), "test")
                 .getErrorTextLocator()
