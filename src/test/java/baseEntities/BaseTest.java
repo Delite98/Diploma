@@ -2,6 +2,7 @@ package baseEntities;
 
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import configurations.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -32,6 +33,8 @@ public class BaseTest {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
         Configuration.browserPosition = "0x0";
+        Selenide.clearBrowserCookies();
+        Selenide.clearBrowserLocalStorage();
         SelenideLogger.addListener("Selenide", new AllureSelenide());
     }
 
