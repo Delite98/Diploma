@@ -5,8 +5,8 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import configurations.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeClass;
 import pages.DashboardPage;
 import pages.EditTestSuitePage;
 import pages.LoginPage;
@@ -33,8 +33,10 @@ public class BaseTest {
         Configuration.browserSize = "1920x1080";
         Configuration.browserPosition = "0x0";
         SelenideLogger.addListener("Selenide", new AllureSelenide());
+    }
 
-
+    @BeforeClass
+    public void ever(){
         loginStep = new LoginStep();
         navigationStep = new NavigationStep();
         dashboardStep = new DashboardStep();
