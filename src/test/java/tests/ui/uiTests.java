@@ -40,6 +40,6 @@ public class uiTests extends BaseTest {
         testSuiteOverviewStep.selectEditTestSuite();
         editTestSuiteStep.deleteSuite("testSuite3");
         editTestSuitePage.getDialogTitleLocator().shouldHave(text("Confirmation"));
-        editTestSuitePage.getConfirmationCancelButtonLocator();
+        editTestSuitePage.getConfirmationCancelButtonLocator().click();
     }
 }
