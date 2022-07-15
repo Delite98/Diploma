@@ -32,7 +32,8 @@ Assert.assertTrue(dashboardPage.getTextIconHeaderMail().isDisplayed());
     }
 
     @AfterTest
-    public void logout() {
+    public void logout() throws InterruptedException {
         loginStep.logout();
+        Thread.sleep(2);
     }
 }
