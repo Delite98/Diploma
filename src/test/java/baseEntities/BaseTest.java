@@ -33,8 +33,6 @@ public class BaseTest {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
         Configuration.browserPosition = "0x0";
-        Selenide.clearBrowserCookies();
-        Selenide.clearBrowserLocalStorage();
         SelenideLogger.addListener("Selenide", new AllureSelenide());
     }
 
