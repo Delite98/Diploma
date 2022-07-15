@@ -3,9 +3,11 @@ package tests.ui;
 import baseEntities.BaseTest;
 import configurations.ReadProperties;
 import org.apache.commons.lang.RandomStringUtils;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selenide.actions;
 
 public class uiTests extends BaseTest {
 
@@ -42,4 +44,16 @@ public class uiTests extends BaseTest {
         editTestSuitePage.getDialogTitleLocator().shouldHave(text("Confirmation"));
         editTestSuitePage.getConfirmationCancelButtonLocator().click();
     }
+
+    @Test (priority = 4)
+    public void emergeTextTest(){
+        loginStep.successLogin(ReadProperties.username(), ReadProperties.password());
+        actions()
+                .moveToElement(dashboardPage.getIconHeaderMail())
+                .pause(5000)
+                .build()
+                .perform();
+        Assert.assertTrue(dashboardPage.getTextIconHeaderMail().isDisplayed());
+    }
+
 }
