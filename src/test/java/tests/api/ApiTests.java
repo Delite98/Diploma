@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import configurations.ApiEndpoints;
 import io.restassured.response.Response;
 import models.Project;
+import models.Suits;
 import org.apache.http.HttpStatus;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -29,8 +30,19 @@ public class ApiTests extends BaseApiTest {
     public void getReportsApiTest() {
         given()
                 .when()
-                .pathParam("project_id", 12)
+                .pathParam("project_id", 146)
                 .get(ApiEndpoints.GET_REPORTS)
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(HttpStatus.SC_OK);
+    }
+    @Test
+    public void getSuitesApiTest() {
+        given()
+                .when()
+                .pathParam("project_id", 146)
+                .get(ApiEndpoints.GET_SUITES)
                 .then()
                 .log().status()
                 .log().body()
@@ -41,7 +53,7 @@ public class ApiTests extends BaseApiTest {
         public void getPlansApiTest() {
         given()
                 .when()
-                .pathParam("project_id", 12)
+                .pathParam("project_id", 146)
                 .get(ApiEndpoints.GET_PLANS)
                 .then()
                 .log().status()
@@ -62,6 +74,24 @@ public class ApiTests extends BaseApiTest {
                         "}", newProject.getName()))
                 .when()
                 .post(ApiEndpoints.ADD_PROJECT)
+                .then()
+                .log().body()
+                .statusCode(HttpStatus.SC_OK);
+    }
+    @Test
+    public void postSuiteApiTest(){
+        Suits newSuits = Suits.builder()
+                .name("SuitsMyGod0")
+                .description("Hello, let's try")
+                .build();
+
+        given()
+                .body(String.format("{\n" +
+                        "  \"name\": \"%s\"\n" +
+                        "}", newSuits.getName()))
+                .when()
+                .pathParam("project_id", 12)
+                .post(ApiEndpoints.ADD_SUITES)
                 .then()
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
