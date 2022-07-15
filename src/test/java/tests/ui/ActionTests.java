@@ -39,5 +39,6 @@ Assert.assertTrue(dashboardPage.getTextIconHeaderMail().isDisplayed());
         Selenide.clearBrowserLocalStorage();
         Selenide.clearBrowserLocalStorage();
         loginPage.getEmailInputLocator().isDisplayed();
+        Selenide.closeWebDriver();
     }
 }
