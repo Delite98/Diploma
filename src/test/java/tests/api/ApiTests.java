@@ -90,7 +90,7 @@ public class ApiTests extends BaseApiTest {
                         "  \"name\": \"%s\"\n" +
                         "}", newSuits.getName()))
                 .when()
-                .pathParam("project_id", 146)
+                .pathParam("project_id", 148)
                 .post(ApiEndpoints.ADD_SUITES)
                 .then()
                 .log().body()
