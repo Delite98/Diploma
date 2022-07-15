@@ -3,7 +3,8 @@ package pages;
 import baseEntities.BasePage;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class LoginPage extends BasePage {
     //locators
@@ -12,6 +13,8 @@ public class LoginPage extends BasePage {
     private SelenideElement pswInputLocator = $("#password");
     private SelenideElement loginButtonLocator = $(".loginpage-button-sso-disable");
     private SelenideElement errorTextLocator = $(".error-text");
+    private SelenideElement errorLocator = $x("//div[text()='Field Email/User is too long (250 characters at most).']");
+    private SelenideElement loginPageMessage = $(".loginpage-message-image");
 
     //corpuscular methods
     protected SelenideElement getPageIdentifier() {
@@ -32,5 +35,13 @@ public class LoginPage extends BasePage {
 
     public SelenideElement getErrorTextLocator() {
         return errorTextLocator;
+    }
+
+    public SelenideElement getErrorLocator() {
+        return errorLocator;
+    }
+
+    public SelenideElement getLoginPageMessage() {
+        return loginPageMessage;
     }
 }

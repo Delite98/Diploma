@@ -18,6 +18,10 @@ public class EditTestSuiteStep extends BaseStep {
         return testSuiteOverviewPage;
     }
 
+    public void deleteSuite(String nameTestSuite) {
+        editTestSuitePage.getDeleteTestSuiteButtonLocator(nameTestSuite).click();
+    }
+
     public void fillTestSuite(String testSuiteName, String testSuiteDescription) {
         editTestSuitePage.getDescriptionTestSuiteLocator().click();
         editTestSuitePage.getNameTestSuiteInputLocator().setValue(testSuiteName);

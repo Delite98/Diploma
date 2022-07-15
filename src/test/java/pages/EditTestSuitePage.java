@@ -19,6 +19,7 @@ public class EditTestSuitePage extends BasePage {
     private SelenideElement confirmationOkButtonLocator = $x("//div[contains(@class,'delete-confirm-container')]/following::a[contains(text(),'OK')]");
     private SelenideElement confirmationCancelButtonLocator = $x("//a[contains(@class,'dialog-action-secondary')]/following-sibling::a[contains(text(),'Cancel')]");
     private SelenideElement returnToDashboardPageButtonLocator = $("#navigation-dashboard-top");
+    private SelenideElement dialogTitleLocator = $("#ui-dialog-title-deleteDialog");
 
     //corpuscular methods
     @Override
@@ -64,5 +65,9 @@ public class EditTestSuitePage extends BasePage {
 
     public SelenideElement getReturnToDashboardPageButtonLocator() {
         return returnToDashboardPageButtonLocator;
+    }
+
+    public SelenideElement getDialogTitleLocator() {
+        return dialogTitleLocator;
     }
 }

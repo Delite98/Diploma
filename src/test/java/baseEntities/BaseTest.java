@@ -8,6 +8,8 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeSuite;
 import pages.DashboardPage;
+import pages.EditTestSuitePage;
+import pages.LoginPage;
 import steps.*;
 
 public class BaseTest {
@@ -21,6 +23,8 @@ public class BaseTest {
     protected TestSuiteOverviewStep testSuiteOverviewStep;
     protected EditTestSuiteStep editTestSuiteStep;
     protected DashboardPage dashboardPage;
+    protected LoginPage loginPage;
+    protected EditTestSuitePage editTestSuitePage;
 
     @BeforeSuite
     public void setupBrowser() {
@@ -41,5 +45,7 @@ public class BaseTest {
         testSuiteOverviewStep = new TestSuiteOverviewStep();
         editTestSuiteStep = new EditTestSuiteStep();
         dashboardPage = new DashboardPage();
+        loginPage = new LoginPage();
+        editTestSuitePage = new EditTestSuitePage();
     }
 }

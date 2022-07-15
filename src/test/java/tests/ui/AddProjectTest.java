@@ -8,18 +8,18 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.value;
 
 public class AddProjectTest extends BaseTest {
-    @Test
+    @Test(priority = 1)
     public void addProjectTest() {
         loginStep.successLogin(ReadProperties.username(), ReadProperties.password());
         dashboardStep.successAddProject();
         addProjectStep.createProject("testUI", "test", false,
-                        "suite_mode_single", false)
+                        "suite_mode_multi", false)
                 .getTabByName("test")
                 .isDisplayed();
         navigationStep.navigateToDashboardFromProjectOverviewPage();
     }
 
-    @Test(dependsOnMethods = "addProjectTest")
+    @Test(priority = 2)
     public void createTestSuiteTest() {
         //loginStep.successLogin(ReadProperties.username(), ReadProperties.password());
         dashboardStep.openProject("testUI");
@@ -32,7 +32,7 @@ public class AddProjectTest extends BaseTest {
 
     }
 
-    @Test(dependsOnMethods = "createTestSuiteTest")
+    @Test(priority = 3)
     public void readTestSuiteAfterCreateTest() {
         dashboardStep.openProject("testUI");
         projectOverviewStep.selectTestSuite();
@@ -44,7 +44,7 @@ public class AddProjectTest extends BaseTest {
                 .shouldHave(text("test"));
     }
 
-    @Test
+    @Test(priority = 4)
     public void updateTestSuiteTest() {
         dashboardStep.openProject("testUI");
         projectOverviewStep.selectTestSuite();
@@ -56,7 +56,7 @@ public class AddProjectTest extends BaseTest {
         navigationStep.navigateToDashboardFromTestSuiteOverviewPage();
     }
 
-    @Test(dependsOnMethods = "updateTestSuiteTest")
+    @Test(priority = 5)
     public void readTestSuiteAfterUpdateTest() {
         dashboardStep.openProject("testUI");
         projectOverviewStep.selectTestSuite();
@@ -69,7 +69,7 @@ public class AddProjectTest extends BaseTest {
         navigationStep.navigateToDashboardFromEditTestSuitePage();
     }
 
-    @Test(dependsOnMethods = "readTestSuiteAfterUpdateTest")
+    @Test(priority = 6)
     public void deleteTestSuiteTest() {
         dashboardStep.openProject("testUI");
         projectOverviewStep.selectTestSuite();
