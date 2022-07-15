@@ -56,7 +56,6 @@ public class BaseTest {
 
     @AfterClass
     public void closeBrowser(){
-        Selenide.closeWindow();
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
         Selenide.closeWebDriver();
