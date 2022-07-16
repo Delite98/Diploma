@@ -6,7 +6,9 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import configurations.ReadProperties;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import pages.DashboardPage;
 import pages.EditTestSuitePage;
 import pages.LoginPage;
@@ -36,7 +38,7 @@ public class BaseTest {
     }
 
     @BeforeClass
-    public void ever(){
+    public void ever() {
         loginStep = new LoginStep();
         navigationStep = new NavigationStep();
         dashboardStep = new DashboardStep();
@@ -52,7 +54,7 @@ public class BaseTest {
     }
 
     @AfterClass
-    public void closeBrowser(){
+    public void closeBrowser() {
         loginStep.logout();
         loginPage.getEmailInputLocator().isDisplayed();
         Selenide.closeWebDriver();

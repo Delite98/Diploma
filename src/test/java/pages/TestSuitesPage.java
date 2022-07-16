@@ -10,6 +10,7 @@ public class TestSuitesPage extends BasePage {
     private SelenideElement pageIdentifier = $x("//div[contains(text(),'Test Suites & Cases')]");
     private SelenideElement addTestSuiteButtonLocator = $x("//a[@id='navigation-suites-add']");
     private String openTestSuiteByNameLocator = "//a[text()='Replace']";
+
     //corpuscular methods
     @Override
     protected SelenideElement getPageIdentifier() {
@@ -21,6 +22,6 @@ public class TestSuitesPage extends BasePage {
     }
 
     public SelenideElement getOpenTestSuiteByNameLocator(String testSuiteName) {
-        return $x(openTestSuiteByNameLocator.replace("Replace",testSuiteName));
+        return $x(openTestSuiteByNameLocator.replace("Replace", testSuiteName));
     }
 }

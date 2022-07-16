@@ -2,12 +2,17 @@ package tests.ui;
 
 import baseEntities.BaseTest;
 import configurations.ReadProperties;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.value;
 
+@Epic("adding project and creating test suites")
 public class AddProjectTest extends BaseTest {
+
+    @Feature("validation add project")
     @Test(priority = 1)
     public void addProjectTest() {
         loginStep.successLogin(ReadProperties.username(), ReadProperties.password());
@@ -19,9 +24,9 @@ public class AddProjectTest extends BaseTest {
         navigationStep.navigateToDashboardFromProjectOverviewPage();
     }
 
+    @Feature("test suite creation validation")
     @Test(priority = 2)
     public void createTestSuiteTest() {
-        //loginStep.successLogin(ReadProperties.username(), ReadProperties.password());
         dashboardStep.openProject("testUI");
         projectOverviewStep.selectTestSuite();
         testSuitesStep.addTestSuite();
@@ -29,9 +34,9 @@ public class AddProjectTest extends BaseTest {
                 .getMessageLocator()
                 .isDisplayed();
         navigationStep.navigateToDashboardFromTestSuiteOverviewPage();
-
     }
 
+    @Feature("test suite reading validation after creation")
     @Test(priority = 3)
     public void readTestSuiteAfterCreateTest() {
         dashboardStep.openProject("testUI");
@@ -44,6 +49,7 @@ public class AddProjectTest extends BaseTest {
                 .shouldHave(text("test"));
     }
 
+    @Feature("test suite update validation")
     @Test(priority = 4)
     public void updateTestSuiteTest() {
         dashboardStep.openProject("testUI");
@@ -56,6 +62,7 @@ public class AddProjectTest extends BaseTest {
         navigationStep.navigateToDashboardFromTestSuiteOverviewPage();
     }
 
+    @Feature("test suite reading validation after update")
     @Test(priority = 5)
     public void readTestSuiteAfterUpdateTest() {
         dashboardStep.openProject("testUI");
@@ -69,6 +76,7 @@ public class AddProjectTest extends BaseTest {
         navigationStep.navigateToDashboardFromEditTestSuitePage();
     }
 
+    @Feature("validation delete test suite")
     @Test(priority = 6)
     public void deleteTestSuiteTest() {
         dashboardStep.openProject("testUI");

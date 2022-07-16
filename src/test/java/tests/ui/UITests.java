@@ -2,6 +2,8 @@ package tests.ui;
 
 import baseEntities.BaseTest;
 import configurations.ReadProperties;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import org.apache.commons.lang.RandomStringUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -9,8 +11,10 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.actions;
 
-public class uiTests extends BaseTest {
+@Epic("specific UI tests")
+public class UITests extends BaseTest {
 
+    @Feature("login validation with boundary values")
     @Test(priority = 1)
     public void limitValuesTest() {
         String generatedName1 = RandomStringUtils.randomAlphabetic(251);
@@ -26,12 +30,14 @@ public class uiTests extends BaseTest {
         loginPage.getErrorTextLocator().shouldHave(text("Email/Login or Password is incorrect. Please try again."));
     }
 
+    @Feature("login validation with empty email")
     @Test(priority = 2)
     public void emptyUsernameTest() {
         loginStep.emptyLogin(ReadProperties.password());
         loginPage.getLoginPageMessage().shouldHave(text("Email/Login is required."));
     }
 
+    @Feature("dialog window validation")
     @Test(priority = 3)
     public void dialogWindowDeleteTestSuiteTest() {
         loginStep.successLogin(ReadProperties.username(), ReadProperties.password());
@@ -45,8 +51,9 @@ public class uiTests extends BaseTest {
         editTestSuitePage.getConfirmationCancelButtonLocator().click();
     }
 
-    @Test (priority = 4)
-    public void emergeTextTest(){
+    @Feature("tooltip validation")
+    @Test(priority = 4)
+    public void emergeTextTest() {
         actions()
                 .moveToElement(dashboardPage.getIconHeaderMail())
                 .pause(5000)
@@ -54,5 +61,4 @@ public class uiTests extends BaseTest {
                 .perform();
         Assert.assertTrue(dashboardPage.getTextIconHeaderMail().isDisplayed());
     }
-
 }

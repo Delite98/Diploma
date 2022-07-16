@@ -5,7 +5,7 @@ import configurations.ReadProperties;
 import pages.DashboardPage;
 import pages.LoginPage;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.open;
 
 public class LoginStep extends BaseStep {
 

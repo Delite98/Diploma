@@ -16,7 +16,7 @@ public class ApiTests extends BaseApiTest {
     int idProject = 148;
 
     @Test
-    public void postProjectApiTest(){
+    public void postProjectApiTest() {
         Project newProject = Project.builder()
                 .name("API test from API test")
                 .announcement("Hi, I'm test api for diploma")
@@ -34,7 +34,7 @@ public class ApiTests extends BaseApiTest {
     }
 
     @Test
-    public void postSuiteApiTest(){
+    public void postSuiteApiTest() {
         Suits newSuits = Suits.builder()
                 .name("SuitsMyGod0")
                 .description("Hello, let's try")
@@ -74,6 +74,7 @@ public class ApiTests extends BaseApiTest {
                 .log().body()
                 .statusCode(HttpStatus.SC_OK);
     }
+
     @Test
     public void getSuitesApiTest() {
         given()
@@ -86,8 +87,8 @@ public class ApiTests extends BaseApiTest {
                 .statusCode(HttpStatus.SC_OK);
     }
 
-        @Test
-        public void getPlansApiTest() {
+    @Test
+    public void getPlansApiTest() {
         given()
                 .when()
                 .pathParam("project_id", idProject)
@@ -98,7 +99,7 @@ public class ApiTests extends BaseApiTest {
                 .statusCode(HttpStatus.SC_OK);
     }
 
-    @Test (expectedExceptions = {AssertionError.class})
+    @Test(expectedExceptions = {AssertionError.class})
     public void incorrectValidateApiTest() {
         Response response = given()
                 .pathParam("project_id", idProject)

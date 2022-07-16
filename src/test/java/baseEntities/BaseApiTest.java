@@ -11,12 +11,11 @@ import static io.restassured.RestAssured.given;
 public class BaseApiTest {
 
     @BeforeTest
-    public void setupEnvironment(){
+    public void setupEnvironment() {
         RestAssured.baseURI = ReadProperties.getUrl();
 
         RestAssured.requestSpecification = given()
                 .header(HTTP.CONTENT_TYPE, ContentType.JSON)
                 .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password());
     }
-
 }

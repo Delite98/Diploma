@@ -12,11 +12,6 @@ public class BaseStep {
     protected TestSuiteOverviewPage testSuiteOverviewPage;
     protected EditTestSuitePage editTestSuitePage;
 
-   /* protected AllProjectsPage allProjectsPage;
-    protected MilestonesPage milestonesPage;
-    protected AddMilestonePage addMilestonePage;
-    protected EditMilestonePage editMilestonePage;*/
-
     public BaseStep() {
         loginPage = new LoginPage();
         dashboardPage = new DashboardPage();
@@ -26,10 +21,5 @@ public class BaseStep {
         addTestSuitePage = new AddTestSuitePage();
         testSuiteOverviewPage = new TestSuiteOverviewPage();
         editTestSuitePage = new EditTestSuitePage();
-        /*projectsPage = new ProjectsPage(driver);
-        allProjectsPage = new AllProjectsPage(driver);
-        milestonesPage = new MilestonesPage(driver);
-        addMilestonePage = new AddMilestonePage(driver);
-        editMilestonePage = new EditMilestonePage(driver);*/
     }
 }

@@ -14,7 +14,6 @@ public class DashboardPage extends BasePage {
     private String openProjectByNameLocator = "//a[text()='Replace']";
     private SelenideElement iconHeaderMail = $(".icon-header-mail");
     private SelenideElement textIconHeaderMail = $(".top-social-link.link-tooltip:last-child");
-    private SelenideElement tooltipLocator = $x("//div[@class='icon-header-mail']/parent::a");
 
     //corpuscular methods
     public SelenideElement getPageIdentifier() {
@@ -31,10 +30,6 @@ public class DashboardPage extends BasePage {
 
     public SelenideElement getOpenProjectByNameLocator(String projectName) {
         return $x(openProjectByNameLocator.replace("Replace", projectName));
-    }
-
-    public SelenideElement getTooltipLocator() {
-        return tooltipLocator;
     }
 
     public SelenideElement getIconHeaderMail() {

@@ -12,6 +12,7 @@ public class TestSuiteOverviewPage extends BasePage {
     private SelenideElement updateMessageLocator = $x("//div[contains(text(),'Successfully updated the test suite.')]");
     private SelenideElement deleteMessageLocator = $x("//div[contains(text(),'Successfully deleted the test suite.')]");
     private SelenideElement returnToDashboardButtonLocator = $x("//a[@id='navigation-dashboard-top']");
+
     //corpuscular methods
     @Override
     protected SelenideElement getPageIdentifier() {
